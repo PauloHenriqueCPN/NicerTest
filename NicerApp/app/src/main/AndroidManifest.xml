@@ -13,6 +13,18 @@
         android:theme="@style/Theme.NicerApp"
         tools:targetApi="31">
         <activity
+            android:name=".pergunta9"
+            android:exported="false" />
+        <activity
+            android:name=".pergunta8"
+            android:exported="false" />
+        <activity
+            android:name=".pergunta7"
+            android:exported="false" />
+        <activity
+            android:name=".pergunta6"
+            android:exported="false" />
+        <activity
             android:name=".segredo"
             android:exported="false" />
         <activity

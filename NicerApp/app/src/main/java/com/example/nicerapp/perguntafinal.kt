@@ -15,8 +15,12 @@ class perguntafinal : AppCompatActivity() {
         val resposta3 = intent.getIntExtra("resposta3", 0)
         val resposta4 = intent.getIntExtra("resposta4", 0)
         val resposta5 = intent.getIntExtra("resposta5", 0)
+        val resposta6 = intent.getIntExtra("resposta6", 0)
+        val resposta7 = intent.getIntExtra("resposta7", 0)
+        val resposta8 = intent.getIntExtra("resposta8", 0)
+        val resposta9 = intent.getIntExtra("resposta9", 0)
 
-        val somaRespostas = resposta1 + resposta2 + resposta3 + resposta4 + resposta5 + 1
+        val somaRespostas = 1 + resposta1 + resposta2 + resposta3 + resposta4 + resposta5 + resposta6 + resposta7 + resposta8 + resposta9
 
         val buttonSim: Button = findViewById(R.id.buttonS)
         buttonSim.setOnClickListener {
