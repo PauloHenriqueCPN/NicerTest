@@ -1,14 +1,21 @@
 package com.example.nicerapp
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class perguntafinal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perguntafinal)
+
+        val corfundo = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.corfundo)
+
+        val isSwitchChecked = intent.getBooleanExtra("isSwitchChecked", false)
+        setBackgroundColor(corfundo, isSwitchChecked)
 
         val resposta1 = intent.getIntExtra("resposta1", 0)
         val resposta2 = intent.getIntExtra("resposta2", 0)
@@ -28,18 +35,29 @@ class perguntafinal : AppCompatActivity() {
             startActivity(intent)
         }
 
-        if (somaRespostas > 3) {
+        if (somaRespostas > 5) {
 
             val buttonNao: Button = findViewById(R.id.buttonN)
             buttonNao.setOnClickListener {
                 val intent = Intent(this, pessoalegal::class.java)
+                intent.putExtra("isSwitchChecked", isSwitchChecked)
                 startActivity(intent)
             }
         } else {val buttonNao: Button = findViewById(R.id.buttonN)
             buttonNao.setOnClickListener {
                 val intent = Intent(this, pessoanaolegal::class.java)
+                intent.putExtra("isSwitchChecked", isSwitchChecked)
                 startActivity(intent)
             }
         }
+    }
+
+    private fun setBackgroundColor(layout: ConstraintLayout, isChecked: Boolean) {
+        val color = if (isChecked) {
+            Color.parseColor("#000000")
+        } else {
+            Color.parseColor("#FFFFFF")
+        }
+        layout.setBackgroundColor(color)
     }
 }
